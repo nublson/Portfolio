@@ -1,10 +1,13 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import styled, { ThemeProvider } from "styled-components"
 
 import themes from "../../styles/themes/theme"
+import { loadState, saveState } from "../../utils/localStorage"
 import GlobalStyles from "../../styles/global"
 
+import Header from "../UI/Navigation/navbar"
+import Footer from "../Footer"
 import SEO from "../utils/seo"
 
 const Wrapper = styled.div`
@@ -23,15 +26,31 @@ const StyledMain = styled.main`
     flex: 1;
 `
 
-const Layout = ({ children }) => {
-    const { light } = themes.title
+const Layout = ({ children, notOnePageSection }) => {
+    const { light, dark } = themes.title
     const { mediaQueries } = themes
 
+    const [theme, setTheme] = useState(loadState(light))
+
+    const toogleTheme = () => {
+        setTheme(theme.title === "light" ? dark : light)
+    }
+
+    useEffect(() => {
+        saveState(theme)
+    }, [theme])
+
     return (
-        <ThemeProvider theme={{ title: light, mediaQueries }}>
+        <ThemeProvider theme={{ mode: theme, mediaQueries }}>
             <Wrapper>
                 <SEO />
+                <Header
+                    notOnePageSection={notOnePageSection}
+                    toogleTheme={toogleTheme}
+                    theme={{ mode: theme }}
+                />
                 <StyledMain>{children}</StyledMain>
+                <Footer />
                 <GlobalStyles />
             </Wrapper>
         </ThemeProvider>

@@ -1,3 +1,5 @@
+const path = require("path")
+
 module.exports = {
     siteMetadata: {
         title: `Nubelson | Full-Stack Developer`,
@@ -17,6 +19,48 @@ module.exports = {
     plugins: [
         `gatsby-plugin-styled-components`,
         `gatsby-plugin-react-helmet`,
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: `content`,
+                path: path.resolve(__dirname, "src", "content"),
+            },
+        },
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: `images`,
+                path: path.join(__dirname, `src`, `images`),
+            },
+        },
+        {
+            resolve: `gatsby-plugin-prefetch-google-fonts`,
+            options: {
+                fonts: [
+                    {
+                        family: `Lato`,
+                        variants: [`300`, `400`, `400i`, `700`, `700i`],
+                    },
+                ],
+            },
+        },
+        `gatsby-transformer-sharp`,
+        `gatsby-plugin-sharp`,
+        {
+            resolve: `gatsby-transformer-remark`,
+            options: {
+                // Plugins configs
+                plugins: [
+                    {
+                        resolve: "gatsby-remark-external-links",
+                        options: {
+                            target: "_blank",
+                            rel: "noreferrer",
+                        },
+                    },
+                ],
+            },
+        },
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
