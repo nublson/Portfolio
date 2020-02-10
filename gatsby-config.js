@@ -20,8 +20,8 @@ module.exports = {
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
-                name: `GatsbyJS`,
-                short_name: `GatsbyJS`,
+                name: `Nubelson | Full-Stack Developer`,
+                short_name: `Nubelson`,
                 start_url: `/`,
                 background_color: `#fff`,
                 theme_color: `#F9D342`,
