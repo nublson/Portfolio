@@ -1,5 +1,5 @@
 export const loadState = initialTheme => {
-    const theme = localStorage.getItem("theme")
+    const theme = typeof window !== "undefined" && localStorage.getItem("theme")
 
     if (!theme) {
         return initialTheme
