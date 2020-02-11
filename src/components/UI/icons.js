@@ -1,15 +1,15 @@
-import React from 'react'
-import { useSpring, animated, config } from 'react-spring'
-import styled from 'styled-components'
-import { Link } from 'react-scroll'
-import { IoIosArrowDown } from 'react-icons/io'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from "react"
+import { useSpring, animated, config } from "react-spring"
+import styled from "styled-components"
+import { Link } from "react-scroll"
+import { IoIosArrowDown } from "react-icons/io"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
     faGithub,
     faInstagram,
     faLinkedinIn,
     faTwitter,
-} from '@fortawesome/free-brands-svg-icons'
+} from "@fortawesome/free-brands-svg-icons"
 
 const IconsWrapper = styled.div`
     display: flex;
@@ -105,10 +105,10 @@ export const ArrowDown = () => {
         config: config.wobbly,
         delay: 500,
         opacity: 1,
-        transform: 'translate(-50%, 0px)',
+        transform: "translate(-50%, 0px)",
         from: {
             opacity: 0,
-            transform: 'translate(-50%, 40px)',
+            transform: "translate(-50%, 40px)",
         },
     })
 
@@ -125,7 +125,7 @@ export const SocialIcons = () => {
     return (
         <IconsWrapper>
             <StyledLink
-                href="#"
+                href="https://www.linkedin.com/in/nubelsondev/"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Linkedin"
@@ -133,7 +133,7 @@ export const SocialIcons = () => {
                 <StyledIcon icon={faLinkedinIn} />
             </StyledLink>
             <StyledLink
-                href="#"
+                href="https://github.com/nubelsondev"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Github"
@@ -141,7 +141,7 @@ export const SocialIcons = () => {
                 <StyledIcon icon={faGithub} />
             </StyledLink>
             <StyledLink
-                href="#"
+                href="https://www.instagram.com/nubelsondev/"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
@@ -149,7 +149,7 @@ export const SocialIcons = () => {
                 <StyledIcon icon={faInstagram} />
             </StyledLink>
             <StyledLink
-                href="#"
+                href="https://twitter.com/nubelsondev"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Twitter"
